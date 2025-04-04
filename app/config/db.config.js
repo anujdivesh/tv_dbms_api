@@ -1,4 +1,6 @@
 
+
+/*
 module.exports = {
   HOST: "localhost",
   USER: "postgres",
@@ -12,9 +14,10 @@ module.exports = {
     idle: 10000
   }
 };
+*/
 
 //////////FOR PROD
-/*
+
 module.exports = {
   HOST: "postgres",
   USER: "postgres",
@@ -27,4 +30,4 @@ module.exports = {
     acquire: 30000,
     idle: 10000
   }
-};*/
+};

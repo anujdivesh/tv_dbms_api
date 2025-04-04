@@ -59,7 +59,7 @@ require('./app/routes/topic.routes')(app);
 require('./app/routes/metadata.routes')(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8082;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
