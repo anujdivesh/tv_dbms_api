@@ -56,7 +56,7 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
       },
       created_by: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       country_id: {
         type: Sequelize.STRING,

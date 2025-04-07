@@ -33,6 +33,7 @@ db.publisher = require("../models/publisher.model.js")(sequelize, Sequelize);
 db.keyword = require("../models/keyword.model.js")(sequelize, Sequelize);
 db.topic = require("../models/topic.model.js")(sequelize, Sequelize);
 db.metadata = require("../models/metadata.model.js")(sequelize, Sequelize);
+db.bounding_box = require("../models/bounding_box.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",

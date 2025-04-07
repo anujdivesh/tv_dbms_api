@@ -3,6 +3,7 @@ module.exports = {
   HOST: "localhost",
   USER: "postgres",
   PASSWORD: "Oceanportal2017*",
+  //PASSWORD: "Passworld02",
   DB: "tv_dbms",
   dialect: "postgres",
   pool: {

@@ -61,9 +61,10 @@ require('./app/routes/keyword.routes')(app);
 require('./app/routes/topic.routes')(app);
 require('./app/routes/metadata.routes')(app);
 require('./app/routes/dataset.routes')(app);
+require('./app/routes/bounding_box.routes')(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8082;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
@@ -71,6 +72,14 @@ app.listen(PORT, () => {
 const Role = db.role;
 const Country = db.country;
 const User = db.user;
+const BoundingBox = db.bounding_box;
+const Contact = db.contact;
+const data_type = db.data_type;
+const keyword = db.keyword;
+const project = db.project;
+const publisher = db.publisher;
+const topic = db.topic;
+
 
 function initial() {
   Role.create({
@@ -89,16 +98,120 @@ function initial() {
   });
   Country.create({
     short_name:"TV",
-    long_name: "Tuvalu"
+    long_name: "Tuvalu",
+    west_bound_longitude: "176.7",
+    east_bound_longitude: "180.0",
+    south_bound_latitude:"-12.7",
+    north_bound_latitude: "-5.4",
+    crs:"EPSG:4326"
   });
-  /*User.create({
+  BoundingBox.create({
+    name: "Vaitupu",
+    west_bound_longitude: "178.657179",
+    east_bound_longitude: "178.703629",
+    south_bound_latitude:"-7.5049558",
+    north_bound_latitude: "-7.4517058",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Nukulaelae",
+    west_bound_longitude: "179.794028",
+    east_bound_longitude: "179.877978",
+    south_bound_latitude:"-9.44151925",
+    north_bound_latitude: "-9.34026925",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Nukufetau",
+    west_bound_longitude: "178.30143600000002",
+    east_bound_longitude: "178.439636",
+    south_bound_latitude:"-8.07930722",
+    north_bound_latitude: "-7.92595722",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Nui",
+    west_bound_longitude: "177.133902",
+    east_bound_longitude: "177.171902",
+    south_bound_latitude:"-7.26071275",
+    north_bound_latitude: "-7.18126275",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Niutao",
+    west_bound_longitude: "177.32527199999998,",
+    east_bound_longitude: "177.359022",
+    south_bound_latitude:"-6.11994835",
+    north_bound_latitude: "-6.09734835",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Niulakita",
+    west_bound_longitude: "179.44626100000002",
+    east_bound_longitude: "179.499661",
+    south_bound_latitude:"-10.8132493",
+    north_bound_latitude: "-10.7647493",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Nanumea",
+    west_bound_longitude: "176.05230600000002",
+    east_bound_longitude: "176.144355999977",
+    south_bound_latitude:"-5.70847427",
+    north_bound_latitude: "-5.635624270000171",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Nanumaga",
+    west_bound_longitude: "176.30535600000002",
+    east_bound_longitude: "176.33400599999297",
+    south_bound_latitude:"-6.30874506",
+    north_bound_latitude: "-6.2661450600001",
+    crs:"EPSG:4326"
+  });
+  BoundingBox.create({
+    name: "Funafuti",
+    west_bound_longitude: "179.014025",
+    east_bound_longitude: "179.209125",
+    south_bound_latitude:"-8.64960458",
+    north_bound_latitude: "-8.41945458",
+    crs:"EPSG:4326"
+  });
+  Contact.create({
     first_name: "Divesh",
-    last_name : "Anuj",
-    email: "divesha@spc.int",
-    password: "123456",
-    country_id:"TV",
-    roles:"admineyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJlbWFpbCI6Im"
-})*/
+    last_name: "Anuj",
+    position:"Senior Systems Developer",
+    email: "divesha@spc.int"
+  })
+  data_type.create({
+    datatype_code: "raster",
+    datatype_name:"raster"
+  })
+  data_type.create({
+    datatype_code: "vector",
+    datatype_name:"vector"
+  })
+  keyword.create({
+    name:"Ocean"
+  })
+  keyword.create({
+    name:"UAV"
+  })
+  keyword.create({
+    name:"Lidar"
+  })
+  project.create({
+    project_code: "TCAP",
+    project_name:"Tuvalu Coastal Adaptation Project"
+  })
+  publisher.create({
+    name:"Tuvalu Meteorological Service",
+    website:"https://tuvmet.tv/"
+  })
+  topic.create({
+    name:"Ocean Science"
+  })
+ 
 }
 /*
 //FOR TESTING PURPOSES
