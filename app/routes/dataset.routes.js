@@ -17,10 +17,10 @@ module.exports = function(app) {
   app.get("/ocean_api/api/dataset/:id", controller.download);
 
   // Upload a new file
-  app.post("/ocean_api/api/dataset", controller.upload);
+  app.post("/ocean_api/api/dataset",[authJwt.verifyToken, authJwt.isAdmin], controller.upload);
 
   // Delete a file by ID (async version)
-  app.delete("/ocean_api/api/dataset/:id", controller.remove);
+  app.delete("/ocean_api/api/dataset/:id",[authJwt.verifyToken, authJwt.isAdmin], controller.remove);
 
   // Optionally keep the sync version if needed (though recommended to use async)
   // app.delete("/ocean_api/api/dataset/sync/:id", controller.removeSync);

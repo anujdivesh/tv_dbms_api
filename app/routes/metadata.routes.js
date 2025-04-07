@@ -25,7 +25,7 @@ module.exports = app => {
     );
 
     app.post(
-      "/ocean_api/api/metadata/add",
+      "/ocean_api/api/metadata/add",[authJwt.verifyToken, authJwt.isAdmin],
       controller.create
     );
 
@@ -35,12 +35,12 @@ module.exports = app => {
       );
 
       app.put(
-        "/ocean_api/api/metadata/:id",
+        "/ocean_api/api/metadata/:id",[authJwt.verifyToken, authJwt.isAdmin],
         controller.update
       );
 
       app.delete(
-        "/ocean_api/api/metadata/:id",
+        "/ocean_api/api/metadata/:id",[authJwt.verifyToken, authJwt.isAdmin],
         controller.delete
       );
      
