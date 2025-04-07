@@ -1,7 +1,7 @@
 const uploadFile = require("../middleware/dataset");
 const fs = require("fs");
 const path = require('path');
-const baseUrl = "https://localhost/ocean-api/api/dataset/";
+const baseUrl = "http://localhost:8081/ocean_api/api/dataset/";
 const __basedir = path.resolve();
 
 // Database simulation (in a real app, use a proper database)

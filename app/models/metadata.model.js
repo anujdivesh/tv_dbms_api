@@ -88,7 +88,7 @@ module.exports = (sequelize, Sequelize) => {
       defaultValue: false
    },
    canonical_url: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING,
         defaultValue: false
     }
     });

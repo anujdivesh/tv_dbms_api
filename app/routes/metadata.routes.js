@@ -19,8 +19,13 @@ module.exports = app => {
   
     app.use('/ocean_api/api/metadata', router);
 
+    app.get(
+      "/ocean_api/api/metadata/search",
+      controller.search
+    );
+
     app.post(
-      "/ocean_api/api/metadata/add",[authJwt.verifyToken, authJwt.isAdmin],
+      "/ocean_api/api/metadata/add",
       controller.create
     );
 
@@ -30,7 +35,13 @@ module.exports = app => {
       );
 
       app.put(
-        "/ocean_api/api/metadata/:id",[authJwt.verifyToken, authJwt.isAdmin],
+        "/ocean_api/api/metadata/:id",
         controller.update
       );
+
+      app.delete(
+        "/ocean_api/api/metadata/:id",
+        controller.delete
+      );
+     
   };

@@ -89,8 +89,8 @@ db.metadata.belongsToMany(db.topic, {
 
 db.metadata.belongsToMany(db.keyword, {
   through: "metadata_keyword",
-  foreignKey: "keyword_id",
-  otherKey: "metadata_id"
+  foreignKey: "metadata_id",
+  otherKey: "keyword_id"
 });
 db.keyword.belongsToMany(db.metadata, {
   through: "metadata_keyword",
